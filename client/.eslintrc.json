@@ -20,7 +20,7 @@
     "rules": {       
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
-        "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
-   
+        "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+        "react/prop-types": 1   
     }
 }
