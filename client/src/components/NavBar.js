@@ -1,9 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../index';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
+import { Nav, Navbar, Button, Container } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from '../utils/consts';
@@ -11,24 +8,31 @@ import { ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from '../utils/con
 const NavBar = observer(() => {
   const { user } = useContext(Context);
   const navigate = useNavigate();
+
+  const logout = () => {
+    user.setUser({});
+    user.setIsAuth(false);
+    localStorage.removeItem('token');
+  };
+
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
         <NavLink style={{ color: 'white' }} to={SHOP_ROUTE}>
-          КупиДевайс
+          simpleStore
         </NavLink>
         {user.isAuth ? (
           <Nav className="ml-auto" style={{ color: 'white' }}>
             <Button variant="outline-light" onClick={() => navigate(ADMIN_ROUTE)}>
               Админ панель
             </Button>
-            <Button variant="outline-light" className="ml-2" onClick={() => navigate(LOGIN_ROUTE)}>
+            <Button variant="outline-light" className="ml-2" onClick={() => logout()}>
               Выйти
             </Button>
           </Nav>
         ) : (
           <Nav className="ml-auto" style={{ color: 'white' }}>
-            <Button variant="outline-light" onClick={() => user.setIsAuth(true)}>
+            <Button variant="outline-light" onClick={() => navigate(LOGIN_ROUTE)}>
               Авторизация
             </Button>
           </Nav>

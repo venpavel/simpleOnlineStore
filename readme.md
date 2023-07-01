@@ -4,3 +4,11 @@ Node.js, Express, React.js, PostgreSQL
 react-router-dom v6;
 
 В db_import.sql дамп таблиц для бд.
+
+Для запуска backend:
+cd server
+npm run dev
+
+Для запуска frontend:
+cd client
+npm start
