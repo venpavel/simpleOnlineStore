@@ -3,6 +3,8 @@ Node.js, Express, React.js, PostgreSQL
 Произведен перевод на:
 react-router-dom v6;
 
+По учебному ресурсу https://github.com/utimur/online-store-full-course
+
 В db_import.sql дамп таблиц для бд.
 
 Для запуска backend:

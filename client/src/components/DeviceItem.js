@@ -7,6 +7,7 @@ import { DEVICE_ROUTE } from '../utils/consts';
 
 const DeviceItem = observer(({ device }) => {
   const navigate = useNavigate();
+  // TODO: сделать динаимеским бренд у устройства в списке ниже
   return (
     <Col md={3} className="mt-3" onClick={() => navigate(`${DEVICE_ROUTE}/${device.id} `)}>
       <Card style={{ width: 150, cursor: 'pointer' }} border={'light'}>
